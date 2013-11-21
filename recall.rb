@@ -21,7 +21,7 @@ get '/' do
 end
 
 post '/' do
-  ss
+  n = Note.new params[:id]
   n.content = params[:content]
   n.created_at = Time.now
   n.updated_at = Time.now
