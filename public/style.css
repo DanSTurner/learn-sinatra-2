@@ -114,3 +114,6 @@ p {
 em {
     font-style: italic;
 }
+
+.notice { color: green; }
+.error { color: red; }
