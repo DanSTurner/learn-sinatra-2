@@ -13,6 +13,10 @@ class Note
 end
 
 DataMapper.finalize.auto_upgrade!
+helpers do
+  include Rack::Utils
+  alias_method :h, :escape_html
+end
 
 get '/' do
   @notes = Note.all :order => :id.desc
@@ -46,7 +50,7 @@ end
 
 get '/:id/delete' do
   @note = Note.get params[:id]
-  @title = "Confirm deleteion of note ##{params[:id]}"
+  @title = "Confirm deletion of note ##{params[:id]}"
   erb :delete
 end
 
